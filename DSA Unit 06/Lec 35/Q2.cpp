@@ -3,15 +3,22 @@ Problem Statement
 
 
 
-You are developing a social networking platform where users can connect with each other. To enhance the user experience, you want to implement a feature that suggests connections to users based on a lexicographical order traversal of the user network.
+You are developing a social networking platform where users can connect with each other. 
+To enhance the user experience, you want to implement a feature that suggests connections to
+users based on a lexicographical order traversal of the user network.
 
 
 
-You are given a directed graph, represented as a set of edges. Each edge connects two vertices in the graph. Your task is to implement a program that performs a lexicographic Breadth-First Search (BFS) traversal on the graph, starting from a specified source vertex. The program should print the visited vertices in lexicographic order..
+You are given a directed graph, represented as a set of edges. Each edge connects two vertices in the graph.
+ Your task is to implement a program that performs a lexicographic
+Breadth-First Search (BFS) traversal on the graph, starting from a specified source vertex.
+The program should print the visited vertices in lexicographic order..
 
 
 
-Your task is to traverse the user network starting from the source user S using BFS and print the visited users in lexicographical order. Lexicographical order refers to the order in which the users would appear when sorted alphabetically.
+Your task is to traverse the user network starting from the source 
+user S using BFS and print the visited users in lexicographical order.
+Lexicographical order refers to the order in which the users would appear when sorted alphabetically.
 
 
 
