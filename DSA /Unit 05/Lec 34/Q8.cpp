@@ -3,7 +3,8 @@ Problem Statement
 
 
 
-Smith is implementing a hash table using quadratic probing. He needs to insert a number into a hash table of size 7 and handle collisions using quadratic probing. Help him implement the task.
+Smith is implementing a hash table using quadratic probing. He needs to insert a number into a hash table of size 7 and handle collisions
+using quadratic probing. Help him implement the task.
 
 
 
