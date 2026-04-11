@@ -3,86 +3,82 @@ Problem Statement
 
 
 
-Saran is tasked with designing a program to alphabetize a given string. 
+Elara wants to reverse a given string using Java lambda expressions.
 
 
 
-Implement a class, StringSorter, that takes a string as input and sorts its characters alphabetically. The sorting functionality is encapsulated within a non-static nested class, Alphabetizer, which is responsible for sorting the characters and returning the result.
+Write a program that takes a string as input and prints the reversed version
+    of the string using a functional interface and a lambda expression.
 
 
 
-Write a program that takes user input for a string, utilizes the StringSorter class to alphabetize it, and displays the sorted string.
+Note: You may use the predefined method StringBuilder.reverse() for reversing the string.
 
 Input format :
-The input consists of a string representing the string that needs to be sorted.
+The input consists of a single line containing a string.
 
 Output format :
-The output prints a string representing the sorted string.
+Print the reversed version of the input string.
+
+Refer to the sample output for formatting specifications.
 
 
 
 Refer to the sample output for formatting specifications.
 
 Code constraints :
-1 ≤ length of input string ≤ 10,000
+1 ≤ length of the string ≤ 25
+
+The string may contain lowercase, uppercase, and special characters.
 
 Sample test cases :
 Input 1 :
-hello
+Wizard!!
 Output 1 :
-ehllo
+!!draziW
 Input 2 :
-performance
+Enchanted
 Output 2 :
-aceefmnoprr
+detnahcnE
 
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
-// Your Solution class
-class Solution {
+// Functional Interface
+interface ReverseStringFunction {
+    String reverse(String input);
+}
 
-    // Outer class
-    class StringSorter {
-        private String input;
+// Class to perform reverse using lambda
+class StringReverser {
 
-        // Constructor
-        public StringSorter(String input) {
-            this.input = input;
-        }
+    // Static method (called from main)
+    public static String reverseUsingLambda(String input) {
 
-        // Non-static nested class
-        class Alphabetizer {
+        // Lambda expression implementation
+        ReverseStringFunction obj = (str) -> 
+                new StringBuilder(str).reverse().toString();
 
-            // Method to sort string
-            public String sort() {
-                char[] arr = input.toCharArray();   // Convert to char array
-                Arrays.sort(arr);                  // Sort characters
-                return new String(arr);            // Convert back to string
-            }
-        }
-
-        // Method called from main
-        public String alphabetize() {
-            Alphabetizer a = new Alphabetizer();  // Create inner class object
-            return a.sort();                      // Return sorted string
-        }
+        // Return reversed string
+        return obj.reverse(input);
     }
 }
 
-// Footer 
-class Main {
+// Main class
+public class Main {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
+        // Read input string
         String input = scanner.nextLine();
 
-        Solution solution = new Solution();
-        Solution.StringSorter sorter = solution.new StringSorter(input);
+        // Call method
+        String reversed = StringReverser.reverseUsingLambda(input);
 
-        String sortedString = sorter.alphabetize();
-        System.out.println(sortedString);
+        // Print output
+        System.out.println(reversed);
 
         scanner.close();
     }
