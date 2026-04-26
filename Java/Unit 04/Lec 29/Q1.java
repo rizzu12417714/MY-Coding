@@ -1,0 +1,95 @@
+Single File Programming Question
+Problem Statement
+
+
+
+In a user registration system, there is a requirement to implement a username validation module. Users attempting
+  to register must adhere to specific criteria for their usernames to be considered valid. 
+
+
+
+Your task is to develop a program that takes user input for a desired username and validates it according to the following rules:
+
+The username must not contain any spaces.
+The username must be at least 5 characters long.
+
+
+Implement a custom exception, InvalidUsernameException, to handle cases where the entered username does not meet the specified criteria.
+
+Input format :
+The input consists of a string S, representing the desired username.
+
+Output format :
+If the username is valid, print "Username is valid: [S]".
+
+If the username is invalid:
+
+If the username is short, print "Invalid Username: Username must be at least 5 characters long"
+If the username contains spaces, print "Invalid Username: Username cannot contain spaces"
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+length of username ≤ 100
+
+Sample test cases :
+Input 1 :
+John
+Output 1 :
+Invalid Username: Username must be at least 5 characters long
+Input 2 :
+Jane Doe
+Output 2 :
+Invalid Username: Username cannot contain spaces
+Input 3 :
+Alice
+Output 3 :
+Username is valid: Alice
+
+
+// Header Snippet
+import java.util.Scanner;
+
+// Custom Exception
+class InvalidUsernameException extends Exception {
+    public InvalidUsernameException(String message) {
+        super(message);
+    }
+}
+
+// Validator Class
+class UsernameValidator {
+
+    public static void validateUsername(String username) throws InvalidUsernameException {
+
+        // Check length
+        if (username.length() < 5) {
+            throw new InvalidUsernameException("Username must be at least 5 characters long");
+        }
+
+        // Check spaces
+        if (username.contains(" ")) {
+            throw new InvalidUsernameException("Username cannot contain spaces");
+        }
+    }
+}
+
+// Footer Snippet
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        String username = scanner.nextLine();
+
+        try {
+            UsernameValidator.validateUsername(username);
+            System.out.println("Username is valid: " + username);
+
+        } catch (InvalidUsernameException e) {
+            System.out.println("Invalid Username: " + e.getMessage());
+        }
+
+        scanner.close();
+    }
+}
